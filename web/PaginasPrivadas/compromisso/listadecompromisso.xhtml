@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Lista de Compromisso</title>
+    </h:head>
+    <h:body onload="#{compromissoMB.listar()}">
+        <div class="listacompromisso" align="center">
+            <h1>Compromissos</h1>
+        <h:form>
+            <h:dataTable value="#{compromissoMB.compromissos}" var="compromisso" frame="box" cellpadding="3" border="2">
+                <f:facet name="header">Lista de Compromissos</f:facet>
+                <h:column>
+                    <f:facet name="header">Descrição</f:facet>
+                    <h:outputText value="#{compromisso.descricao}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> Data do Compromisso</f:facet>
+                    <h:outputText value="#{compromisso.data_co}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Hora do Compromisso</f:facet>
+                    <h:outputText value="#{compromisso.hora}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Contato</f:facet>
+                    <h:outputText value="#{compromisso.contato.nome}"/>
+                </h:column>
+                <h:column>
+                     <f:facet name="header">Editar</f:facet>
+                     <h:commandLink value="Editar" action="#{compromissoMB.carregarCompromisso(compromisso)}"/>
+                 </h:column>
+                 <h:column>
+                     <f:facet name="header">Excluir</f:facet>
+                     <h:commandLink value="Excluir" action="#{compromissoMB.excluir(compromisso)}"/>
+                 </h:column>
+            </h:dataTable>
+            <br/><br/>
+            <h:commandButton value="Adicionar Compromisso" action="#{compromissoMB.novo()}"/>
+            <br/><br/>
+            <h:commandButton value="Tela Principal" action="/index.xhtml"/>
+        </h:form>
+        </div>
+    </h:body>
+</html>
+

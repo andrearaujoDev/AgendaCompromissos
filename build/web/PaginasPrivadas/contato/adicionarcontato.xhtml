@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1 align="center">Cadastrar Novo Contato</h1>
+        <h:form>
+            <h:outputText value="Nome : "/>
+            <h:inputText id="nome" value="#{contatoMB.contato.nome}"/>
+            <h:outputText value="Telefone : "/>
+            <h:inputText id="telefone" value="#{contatoMB.contato.telefone}"/>
+            <h:outputText value="Email : "/>
+            <h:inputText id="email" value="#{contatoMB.contato.email}"/>
+            <h:outputText value="Data de Nascimento : "/>
+            <h:inputText id="data_nasc" value="#{contatoMB.contato.data_nasc}"/>
+            
+            <h:commandButton value="Cadastrar" action="#{contatoMB.inserir()}"/>
+            <h:commandButton value="Cancelar" action="#{contatoMB.cancelar()}" immediate="true"/> 
+        </h:form>
+    </h:body>
+</html>
+

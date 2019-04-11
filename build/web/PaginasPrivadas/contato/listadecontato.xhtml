@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Lista de Contatos</title>
+    </h:head>
+    <h:body onload="#{contatoMB.listar()}">
+        <div class="listacontato" align="center">
+            <h1>Contatos</h1>
+        <h:form>
+            <h:dataTable value="#{contatoMB.contatos}" var="contatos" frame="box" cellpadding="3" border="2">
+                 <f:facet name="header">Listagem de Contatos</f:facet>
+                 <h:column>
+                     <f:facet name="header">Nome</f:facet>
+                     <h:outputText value="#{contatos.nome}"/>
+                 </h:column>
+                 <h:column>
+                     <f:facet name="header">Telefone</f:facet>
+                     <h:outputText value="#{contatos.telefone}"/>
+                 </h:column>
+                 <h:column>
+                     <f:facet name="header">Email</f:facet>
+                     <h:outputText value="#{contatos.email}"/>
+                 </h:column>
+                 <h:column>
+                     <f:facet name="header">Data Nascimento</f:facet>
+                     <h:outputText value="#{contatos.data_nasc}"/>
+                 </h:column>
+                 <h:column>
+                     <f:facet name="header">Editar</f:facet>
+                     <h:commandLink value="Editar" action="#{contatoMB.carregarDadosContato(contatos)}"/>
+                 </h:column>
+                 <h:column>
+                     <f:facet name="header">Excluir</f:facet>
+                     <h:commandLink value="Excluir" action="#{contatoMB.excluir(contatos)}"/>
+                 </h:column>
+             </h:dataTable>
+             <br/><br/>
+             <h:commandButton value="Novo Contato" action="#{contatoMB.novo()}"/>
+             <br/><br/>
+             <h:commandButton value="Tela Principal" action="/index.xhtml"/>
+             </h:form>
+        </div>
+    </h:body>
+</html>
+
